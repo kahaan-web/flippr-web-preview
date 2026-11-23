@@ -38,8 +38,8 @@ html.shot .stage{padding:0;display:block} html.shot .phone,html.shot .screen{bor
 .view.on{display:block;animation:vfade .18s ease-out}
 @keyframes vfade{from{opacity:.4}to{opacity:1}}
 /* glass header */
-.header{position:absolute;top:0;left:0;right:0;z-index:30;padding-top:var(--top);background:linear-gradient(180deg,#08245A 0%,#0A2150 55%,#0C1C3F 100%);transition:box-shadow .2s}
-.header.scrolled{box-shadow:0 1px 0 rgba(255,255,255,.06),0 10px 24px -12px rgba(0,0,0,.6)}
+.header{position:absolute;top:0;left:0;right:0;z-index:30;padding-top:var(--top);background:transparent;isolation:isolate;--header-alpha:1}
+.header::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#08245A 0%,#0A2150 55%,#0C1C3F 100%);opacity:var(--header-alpha);pointer-events:none}
 /* scroll-under tail: continues the header blue into the page and scrolls away (AppGradients.headerHomeScrollUnder, dark) */
 #v-home{background:linear-gradient(180deg,#0C1C3F 0,#0D1830 calc(var(--top) + 96px),#0F1115 calc(var(--top) + 190px)) no-repeat;background-attachment:local}
 .hrow{height:56px;display:flex;align-items:center;padding:0 16px;gap:10px}
@@ -114,5 +114,10 @@ html.shot .stage{padding:0;display:block} html.shot .phone,html.shot .screen{bor
 .toast{position:absolute;left:50%;bottom:calc(var(--bottom) + 72px);transform:translate(-50%,8px);z-index:60;padding:10px 14px;border-radius:var(--r-m);background:var(--l2);border:1px solid var(--line);font-size:var(--fs-s);font-weight:500;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;white-space:nowrap}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media (max-width:500px){.statusbar,.home-indicator{display:none}}
-.header::after{content:"";position:absolute;left:0;right:0;top:100%;height:18px;background:linear-gradient(#0C1C3F,rgba(12,28,63,0));pointer-events:none;opacity:0;transition:opacity .2s}
-.header.scrolled::after{opacity:1}
+
+.carousel + .sec{margin-top:14px}
+/* iOS 26 scroll-edge effect: once the gradient has faded, content under the bar is softened by a progressive blur + dim, not an opaque bar */
+.header::after{content:"";position:absolute;left:0;right:0;top:0;bottom:-28px;z-index:-2;pointer-events:none;opacity:calc(1 - var(--header-alpha));
+  background:linear-gradient(180deg,rgba(15,17,21,.86) 0%,rgba(15,17,21,.62) 62%,rgba(15,17,21,0) 100%);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  -webkit-mask:linear-gradient(180deg,#000 0%,#000 58%,transparent 100%);mask:linear-gradient(180deg,#000 0%,#000 58%,transparent 100%)}

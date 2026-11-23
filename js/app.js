@@ -53,12 +53,13 @@ window.FL = window.FL || { onShow: {} };
     document.querySelectorAll('.nav-item').forEach((n, k) => n.classList.toggle('on', k === ai));
     document.getElementById('navInd').style.transform = `translateX(${ai * 100}%)`;
     header.classList.toggle('scrolled', el.scrollTop > 4);
+    header.style.setProperty('--header-alpha', Math.max(0,1-el.scrollTop/96));
     current = el;
     FL.closeDrawer();
     if (FL.onShow[name]) FL.onShow[name](el);
   }
   document.querySelectorAll('.view').forEach(v => v.addEventListener('scroll', () => {
-    if (v === current) header.classList.toggle('scrolled', v.scrollTop > 4);
+    if (v === current) { header.classList.toggle('scrolled', v.scrollTop > 4); header.style.setProperty('--header-alpha', Math.max(0,1-v.scrollTop/96)); }
   }, { passive: true }));
   window.addEventListener('hashchange', () => show(location.hash.slice(1) || 'home'));
   document.getElementById('menuBtn').onclick = FL.openDrawer;
