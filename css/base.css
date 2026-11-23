@@ -121,3 +121,11 @@ html.shot .stage{padding:0;display:block} html.shot .phone,html.shot .screen{bor
   background:linear-gradient(180deg,rgba(15,17,21,.86) 0%,rgba(15,17,21,.62) 62%,rgba(15,17,21,0) 100%);
   -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
   -webkit-mask:linear-gradient(180deg,#000 0%,#000 58%,transparent 100%);mask:linear-gradient(180deg,#000 0%,#000 58%,transparent 100%)}
+
+/* t1162u: tab bar + More = denser iOS 26 Liquid Glass (regular variant): heavy blur, dark tint ~60%, specular top, 1px inner rim, soft shadow */
+.navbar.glass,.nav-more.glass{
+  background:rgba(30,32,40,.28);
+  -webkit-backdrop-filter:blur(28px) saturate(1.9) brightness(.96);backdrop-filter:blur(28px) saturate(1.9) brightness(.96);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 0 0 1px rgba(255,255,255,.07),inset 0 -8px 16px -12px rgba(255,255,255,.16),0 12px 30px -8px rgba(0,0,0,.6),0 2px 6px rgba(0,0,0,.3)}
+.navbar.glass::before,.nav-more.glass::before{background:linear-gradient(180deg,rgba(24,26,33,.58),rgba(16,18,23,.66))}
+.navbar.glass.lens,.nav-more.glass.lens{-webkit-backdrop-filter:var(--lens) blur(24px) saturate(1.9) brightness(.96);backdrop-filter:var(--lens) blur(24px) saturate(1.9) brightness(.96)}

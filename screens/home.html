@@ -24,7 +24,7 @@
 <!-- For you: live + recent match cards, swipeable rail (app match card + ball history) -->
 <section class="sec">
   <div class="sec-h"><h2>For you</h2><a href="#matches">All matches</a></div>
-  <div class="hscroll mrail">
+  <div class="hscroll mrail" id="mrail">
   <article class="card live">
     <div class="live-top">
       <img class="match-ball" src="icons/ball-leather.svg" alt="Leather ball">
@@ -35,7 +35,7 @@
     <div class="trow"><span class="nm">Worli Warriors</span><span class="sc num">168/7</span><span class="ov num">(20.0)</span></div>
     <div class="trow bat"><span class="nm">Andheri Aces</span><span class="sc num">142/4</span><span class="ov num">(16.2)</span></div>
     <div class="live-foot">
-      <span class="eq num">Need 27 in 22 balls</span>
+      <span class="eq num">Andheri Aces need 27 off 22 balls</span>
       <span class="balls num"><span>1</span><span>•</span><span class="b4">4</span><span>2</span><span class="bw">W</span><span class="b6">6</span></span>
     </div>
     <div class="match-links"><a href="#matches">Stats</a><a href="#matches">Points table<i class="ic s14" style="--m:url(../icons/alt-arrow-right-linear.svg)"></i></a></div>
@@ -50,7 +50,7 @@
     <div class="trow bat"><span class="nm">Bandra Blasters</span><span class="sc num">64/2</span><span class="ov num">(5.1)</span></div>
     <div class="trow"><span class="nm">Chembur Chargers</span><span class="sc ytb">Yet to bat</span><span class="ov num"></span></div>
     <div class="live-foot">
-      <span class="eq num">1st innings · CRR 12.39</span>
+      <span class="eq num">Bandra Blasters batting · CRR 12.39</span>
       <span class="balls num"><span class="b6">6</span><span>1</span><span>•</span><span class="b4">4</span><span>1</span><span>2</span></span>
     </div>
     <div class="match-links"><a href="#matches">Stats</a><a href="#matches">Points table<i class="ic s14" style="--m:url(../icons/alt-arrow-right-linear.svg)"></i></a></div>
@@ -65,12 +65,13 @@
     <div class="trow"><span class="nm">Thane Titans</span><span class="sc num">98/6</span><span class="ov num">(9.4)</span></div>
     <div class="trow"><span class="nm">Mulund Mavericks</span><span class="sc num">96/8</span><span class="ov num">(10.0)</span></div>
     <div class="live-foot">
-      <span class="eq num">Titans won by 4 wkts</span>
+      <span class="eq num">Thane Titans won by 4 wickets</span>
       <span class="balls num"><span>2</span><span class="bw">W</span><span>1</span><span class="b4">4</span></span>
     </div>
     <div class="match-links"><a href="#matches">Stats</a><a href="#matches">Points table<i class="ic s14" style="--m:url(../icons/alt-arrow-right-linear.svg)"></i></a></div>
   </article>
   </div>
+  <div class="page-control" id="mdots" role="group" aria-label="Match cards"><button class="on" aria-label="Match 1" aria-current="true"></button><button aria-label="Match 2"></button><button aria-label="Match 3"></button></div>
 </section>
 
 <!-- Near you (SHOW_BOOKING): bookable turf slots -->
@@ -196,6 +197,12 @@
   ['pointerup', 'touchend'].forEach(e => s.addEventListener(e, () => setTimeout(() => hold = false, 3000), { passive: true }));
   dots.forEach((d, k) => d.onclick = () => s.scrollTo({ left: k * s.clientWidth, behavior: 'smooth' }));
   setInterval(() => { if (hold || !s.offsetParent || document.hidden || matchMedia('(prefers-reduced-motion:reduce)').matches) return; s.scrollTo({ left: ((idx + 1) % dots.length) * s.clientWidth, behavior: 'smooth' }); }, 5000);
+  // Match rail: one full-width card per page, iOS page dots (no auto-advance: live scores shouldn't move away from the reader)
+  const mr = document.getElementById('mrail'), md = [...document.querySelectorAll('#mdots button')];
+  const step = () => mr.querySelector('.card').offsetWidth + 16;
+  const msync = () => { const k = Math.round(mr.scrollLeft / step()); md.forEach((d, n) => (d.classList.toggle('on', n === k), d.setAttribute('aria-current', String(n === k)))); };
+  mr.addEventListener('scroll', () => { clearTimeout(mr._t); mr._t = setTimeout(msync, 60); }, { passive: true });
+  md.forEach((d, n) => d.onclick = () => mr.scrollTo({ left: n * step(), behavior: 'smooth' }));
   // Follow toggles
   document.querySelectorAll('#v-home .follow').forEach(b => b.onclick = () => { const on = b.classList.toggle('on'); b.textContent = on ? 'Following' : '+ Follow'; });
   // Slot selection (one per venue)
