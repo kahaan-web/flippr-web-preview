@@ -12,8 +12,8 @@
   --live:#FF4C6E; --won:#38C793;
   /* 4-size type scale */
   --fs-s:12px; --fs-m:14px; --fs-l:16px; --fs-xl:22px;
-  /* tight radii */
-  --r-s:6px; --r-m:10px; --r-l:14px;
+  /* radii (bumped a step: 8/12/18) */
+  --r-s:8px; --r-m:12px; --r-l:18px;
   --top:47px; --bottom:34px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -38,13 +38,16 @@ html.shot .stage{padding:0;display:block} html.shot .phone,html.shot .screen{bor
 .view.on{display:block;animation:vfade .18s ease-out}
 @keyframes vfade{from{opacity:.4}to{opacity:1}}
 /* glass header */
-.header{position:absolute;top:0;left:0;right:0;z-index:30;padding-top:var(--top);background:linear-gradient(to bottom,rgba(15,17,21,.94),rgba(15,17,21,.72));backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid transparent;transition:border-color .2s}
-.header.scrolled{border-bottom-color:var(--line)}
-.hrow{height:56px;display:flex;align-items:center;padding:0 8px 0 6px;gap:2px}
-.hbtn{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;color:var(--t1);flex:none}
-.hbtn .ic{width:24px;height:24px}.hbtn.menu .ic{width:28px;height:28px}
-.hbtn .badge{position:absolute;top:7px;right:7px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--live);color:#fff;font-size:10px;font-weight:700;line-height:16px;text-align:center;box-shadow:0 0 0 2px var(--l0)}
-.hlogo{height:19px;margin-left:4px}.htitle{font-size:var(--fs-xl);font-weight:700;margin-left:4px}.hgrow{flex:1}
+.header{position:absolute;top:0;left:0;right:0;z-index:30;padding-top:var(--top);background:linear-gradient(180deg,#08245A 0%,#0A2150 55%,#0C1C3F 100%);transition:box-shadow .2s}
+.header.scrolled{box-shadow:0 1px 0 rgba(255,255,255,.06),0 10px 24px -12px rgba(0,0,0,.6)}
+/* scroll-under tail: continues the header blue into the page and scrolls away (AppGradients.headerHomeScrollUnder, dark) */
+#v-home{background:linear-gradient(180deg,#0C1C3F 0,#0D1830 calc(var(--top) + 96px),#0F1115 calc(var(--top) + 190px)) no-repeat;background-attachment:local}
+.hrow{height:56px;display:flex;align-items:center;padding:0 16px;gap:10px}
+.hbtn{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;color:#fff;flex:none}
+.hbtn svg{width:20px;height:20px;display:block}
+.hbtn .badge{position:absolute;top:-3px;right:-3px;min-width:17px;height:17px;padding:0 5px;border-radius:9px;background:#FF3B30;color:#fff;font-size:11px;font-weight:600;line-height:17px;text-align:center;z-index:3}
+.hacts{display:flex;gap:10px}
+.hlogo{height:19px}.htitle{font-size:var(--fs-xl);font-weight:700;margin-left:4px}.hgrow{flex:1}
 .hback{display:none}.header.sub .hback{display:flex}.header.sub .menu{display:none}
 /* shared building blocks (use these in every screen) */
 .sec{margin-top:24px}
@@ -79,22 +82,37 @@ html.shot .stage{padding:0;display:block} html.shot .phone,html.shot .screen{bor
 .row .end{text-align:right;flex:none}.row .end b{display:block;font-size:var(--fs-m);font-weight:600}.row .end span{display:block;font-size:var(--fs-s);color:var(--t2);margin-top:2px}
 .row .chev{color:var(--t3)}
 .ini{width:32px;height:32px;border-radius:50%;background:var(--l2);display:flex;align-items:center;justify-content:center;font-size:var(--fs-s);font-weight:600;color:var(--t2);flex:none}
-/* floating liquid-glass navbar */
-.navwrap{position:absolute;left:12px;right:12px;bottom:calc(var(--bottom) + 2px);z-index:35}
-.navbar{position:relative;height:64px;border-radius:24px;display:flex;align-items:stretch;padding:6px;isolation:isolate;
-  background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.03) 45%,rgba(255,255,255,.05));
-  backdrop-filter:blur(22px) saturate(1.8);-webkit-backdrop-filter:blur(22px) saturate(1.8);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 0 0 1px rgba(255,255,255,.08),0 18px 40px -12px rgba(0,0,0,.85),0 2px 10px rgba(0,0,0,.35)}
-.navbar::before{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(18,20,26,.55);z-index:-1}
-.nav-ind{position:absolute;top:6px;bottom:6px;left:6px;width:calc((100% - 12px)/5);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.06));box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 0 0 1px rgba(255,255,255,.06);transition:transform .38s cubic-bezier(.3,1.35,.5,1)}
-.nav-item{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--t2);font-size:11px;font-weight:500}
-.nav-item .ic{width:24px;height:24px}.nav-item .ic.f{display:none}
-.nav-item.on{color:var(--t1);font-weight:600}.nav-item.on .ic.o{display:none}.nav-item.on .ic.f{display:inline-block;color:var(--accent)}
+/* ---------- iOS 26 Liquid Glass ----------
+   layers: (1) lensing backdrop: SVG displacement filter built per-element in js/glass.js (Chromium), blur+saturate fallback elsewhere
+           (2) tint  (3) specular rim: bright top-left edge, faint bottom-right, via masked gradient border
+           (4) inner glow + soft drop shadow */
+.glass{position:relative;isolation:isolate;
+  background:rgba(255,255,255,.06);
+  -webkit-backdrop-filter:blur(3px) saturate(1.7) brightness(1.06);backdrop-filter:blur(3px) saturate(1.7) brightness(1.06);
+  box-shadow:inset 0 0 14px rgba(255,255,255,.07),inset 0 -10px 18px -14px rgba(255,255,255,.18),0 8px 26px -6px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.3)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;background:linear-gradient(180deg,rgba(28,30,38,.30),rgba(18,20,26,.42))}
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:2;
+  background:linear-gradient(135deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.14) 22%,rgba(255,255,255,0) 45%,rgba(255,255,255,0) 62%,rgba(255,255,255,.12) 82%,rgba(255,255,255,.34) 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.glass.lens{-webkit-backdrop-filter:var(--lens) saturate(1.7) brightness(1.06);backdrop-filter:var(--lens) saturate(1.7) brightness(1.06)}
+/* floating tab bar: capsule, like UITabBar on iOS 26 */
+.navwrap{position:absolute;left:14px;right:14px;bottom:calc(var(--bottom) - 6px);z-index:35;display:flex;gap:10px}
+.navbar{flex:1;min-width:0;height:64px;border-radius:32px;display:flex;align-items:stretch;padding:4px}
+.nav-more{flex:none;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9)}
+.nav-more .ic{width:26px;height:26px}
+.nav-ind{position:absolute;top:4px;bottom:4px;left:4px;width:calc((100% - 8px)/4);border-radius:28px;z-index:0;
+  background:rgba(255,255,255,.11);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -1px 0 rgba(255,255,255,.04);
+  transition:transform .42s cubic-bezier(.3,1.4,.45,1)}
+.nav-item{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:rgba(255,255,255,.86);font-size:11px;font-weight:500;letter-spacing:.1px}
+.nav-item .ic{width:26px;height:26px}.nav-item .ic.f{display:none}
+.nav-item.on{color:var(--accent);font-weight:600}.nav-item.on .ic.o{display:none}.nav-item.on .ic.f{display:inline-block}
 /* drawer */
 .scrim{position:absolute;inset:0;z-index:50;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .25s}
 .drawer{position:absolute;top:0;bottom:0;left:0;width:304px;z-index:51;background:var(--l1);border-right:1px solid var(--line);transform:translateX(-102%);transition:transform .3s cubic-bezier(.2,.8,.2,1);overflow-y:auto;scrollbar-width:none;padding:calc(var(--top) + 12px) 0 calc(var(--bottom) + 16px)}
 .drawer::-webkit-scrollbar{display:none}
 .drawer-open .scrim{opacity:1;pointer-events:auto}.drawer-open .drawer{transform:none}
-.toast{position:absolute;left:50%;bottom:calc(var(--bottom) + 84px);transform:translate(-50%,8px);z-index:60;padding:10px 14px;border-radius:var(--r-m);background:var(--l2);border:1px solid var(--line);font-size:var(--fs-s);font-weight:500;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;white-space:nowrap}
+.toast{position:absolute;left:50%;bottom:calc(var(--bottom) + 72px);transform:translate(-50%,8px);z-index:60;padding:10px 14px;border-radius:var(--r-m);background:var(--l2);border:1px solid var(--line);font-size:var(--fs-s);font-weight:500;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;white-space:nowrap}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media (max-width:500px){.statusbar,.home-indicator{display:none}}
+.header::after{content:"";position:absolute;left:0;right:0;top:100%;height:18px;background:linear-gradient(#0C1C3F,rgba(12,28,63,0));pointer-events:none;opacity:0;transition:opacity .2s}
+.header.scrolled::after{opacity:1}

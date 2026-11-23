@@ -1,46 +1,51 @@
-/* ---------- banner carousel: existing app banner style, 60px, all same size ---------- */
-.carousel{margin-top:6px}
+/* ---------- coloured banner rail ---------- */
+.carousel{margin-top:8px;position:relative}
 .slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
 .slides::-webkit-scrollbar{display:none}
 .slide{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;padding:0 16px}
-.banner{display:flex;align-items:center;height:60px;padding:0 14px 0 12px;border-radius:12px;box-shadow:0 2px 4px rgba(0,0,0,.25)}
-.banner .bi{width:24px;height:24px;background:#fff}
-.banner .bt{flex:1;min-width:0;margin:0 8px}
-.banner .b1{font-size:var(--fs-m);font-weight:600;line-height:20px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.banner .b2{font-size:var(--fs-s);font-weight:500;line-height:16px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.banner .bb{flex:none;padding:8px 12px 8px 10px;border-radius:24px;background:#fff;color:#0E1015;font-size:var(--fs-s);font-weight:500;line-height:16px;box-shadow:0 0 4px 1px rgba(0,0,0,.5)}
-.bn-auction{background:linear-gradient(to right,#5F0C02,#0F1115)}
-.bn-fantasy{background:linear-gradient(to right,#0B4A2C,#0F1115)}
-.bn-hisaab{background:linear-gradient(to right,#0A3592,#0F1115)}
-.bn-ai{background:linear-gradient(to right,#3A1B6E,#0F1115)}
-.dots{display:flex;justify-content:center;gap:6px;margin-top:10px}
-.dots i{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.22);transition:width .25s,background .25s}
-.dots i.on{width:18px;background:var(--t1)}
-
-/* ---------- quick actions ---------- */
-.qa{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0 16px}
-.qa a{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 4px 10px;font-size:var(--fs-s);font-weight:500;color:var(--t2);text-align:center;line-height:15px}
-.qa .ic{width:24px;height:24px;color:var(--t1)}
+.banner{display:flex;align-items:center;height:60px;padding:0 14px 0 12px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.15);border:1px solid rgba(255,255,255,.12);color:#fff}
+.banner .bi{width:24px;height:24px;background:currentColor}
+.banner .bt{flex:1;min-width:0;margin:0 9px}
+.banner .b1{font-size:var(--fs-m);font-weight:600;line-height:19px}
+.banner .b2{font-size:var(--fs-s);font-weight:400;line-height:16px;opacity:.78;margin-top:2px}
+.banner .bb{flex:none;padding:8px 10px;border-radius:20px;background:rgba(255,255,255,.92);color:#15171C;font-size:var(--fs-s);font-weight:600;line-height:16px;box-shadow:0 2px 4px rgba(0,0,0,.12)}
+.bn-hisaab{background:linear-gradient(110deg,#B2964B,#C2AA65);color:#261F10}
+.bn-fantasy{background:linear-gradient(110deg,#B94E22,#D87338)}
+.bn-auction{background:linear-gradient(110deg,#9D2D31,#BE4545)}
+.bn-ai{background:linear-gradient(110deg,#204C9E,#346AC1)}
+/* UIPageControl-like: equally sized small dots, quiet contrast, no stretching pill */
+.page-control{display:flex;align-items:center;justify-content:center;gap:1px;height:24px;margin:4px auto -6px;width:max-content}
+.page-control button{width:17px;height:24px;display:grid;place-items:center}
+.page-control button::after{content:"";width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.24);transition:background .2s}
+.page-control button.on::after{background:rgba(255,255,255,.88)}
+.page-control button:focus-visible{outline:2px solid var(--accent);border-radius:8px}
 
 /* ---------- live scorecard ---------- */
-.live{margin:0 16px;overflow:hidden}
-.live-top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px 4px}
+.card.live{width:318px;display:flex;flex-direction:column;overflow:hidden;background:radial-gradient(circle 48px at 22px 23px,rgba(226,91,42,.34) 0%,rgba(226,91,42,.16) 30%,rgba(226,91,42,.06) 60%,rgba(226,91,42,0) 100%),var(--l1)}
+.live-top{display:flex;align-items:center;gap:6px;padding:12px 12px 0}
+.match-ball{width:18px;height:18px;flex:none}
+.match-title{display:flex;align-items:center;flex:1;min-width:0;gap:2px;font-size:var(--fs-m);color:var(--t2);font-weight:500}
+.match-tags{font-size:var(--fs-s);color:var(--t3);padding:3px 12px 10px}
+.match-equation{font-size:var(--fs-s);font-weight:500;color:var(--t1);padding:8px 12px 10px}
+.match-links{background:rgba(255,255,255,.025);border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:18px;padding:8px 12px;font-size:var(--fs-s);color:var(--t2)}
+.match-links a{display:flex;align-items:center;gap:2px}
 .live-top .meta{display:flex;align-items:center;gap:2px;min-width:0;white-space:nowrap;overflow:hidden}
-.trow{display:flex;align-items:center;gap:10px;padding:7px 14px}
+.trow{display:flex;align-items:center;gap:8px;padding:5px 12px}
 .trow .nm{flex:1;min-width:0;font-size:var(--fs-l);font-weight:500;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .trow.bat .nm{color:var(--t1);font-weight:600}
 .trow.bat .nm::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-left:8px;vertical-align:middle}
-.sc{font-size:var(--fs-l);font-weight:700;color:var(--t2)} .trow.bat .sc{color:var(--t1)}
-.ov{font-size:var(--fs-s);color:var(--t3);width:50px;text-align:right}
-.live-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 14px;margin-top:4px;border-top:1px solid var(--line)}
-.live-foot .eq{font-size:var(--fs-s);color:var(--t1);font-weight:500}
+.sc{font-size:var(--fs-l);font-weight:600;color:var(--t2)} .trow.bat .sc{color:var(--t1)}
+.ov{font-size:var(--fs-s);color:var(--t2);width:44px;text-align:right}
+.live-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;margin-top:0;background:rgba(255,255,255,.018);border-top:1px solid var(--line)}
+.live-foot .eq{font-size:var(--fs-s);color:var(--t2);font-weight:500}.live-foot .eq>span{color:var(--t3)}
 .balls{display:flex;gap:4px}
-.balls span{width:22px;height:22px;border-radius:50%;background:var(--l2);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;color:var(--t2)}
+.balls span{width:21px;height:21px;border-radius:50%;background:var(--l2);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;color:var(--t2)}
 .balls .b4,.balls .b6{background:var(--accent);color:#fff}
 .balls .bw{background:rgba(255,76,110,.18);color:var(--live)}
 
 /* ---------- upcoming match cards ---------- */
-.mc{width:280px;padding:12px 14px}
+.mc{width:300px;padding:12px;overflow:hidden;background:radial-gradient(circle 48px at 20px 21px,rgba(226,91,42,.34),rgba(226,91,42,.16) 30%,rgba(226,91,42,.06) 60%,transparent),var(--l1)}
+.mc.tennis{background:radial-gradient(circle 48px at 20px 21px,rgba(183,199,59,.34),rgba(183,199,59,.16) 30%,rgba(183,199,59,.06) 60%,transparent),var(--l1)}
 .mc-top{display:flex;align-items:center;gap:6px}
 .mc-top img{width:16px;height:16px}
 .mc-top .tn{flex:1;min-width:0;font-size:var(--fs-m);font-weight:500;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -123,5 +128,18 @@
 .dr-item em.acc{color:var(--accent);font-weight:600}
 .dr-item.out,.dr-item.out .ic{color:var(--live)}
 .ver{padding:10px 20px 0;font-size:var(--fs-s);color:var(--t3)}
-.bn-fantasy,.bn-hisaab,.bn-ai{background:linear-gradient(to right,#0A3592,#0F1115)}
+
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.card.live.tennis{background:radial-gradient(circle 48px at 22px 23px,rgba(183,199,59,.34) 0%,rgba(183,199,59,.16) 30%,rgba(183,199,59,.06) 60%,rgba(183,199,59,0) 100%),var(--l1)}
+.match-title .tt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.live .pill{flex:none}
+.trow .sc{white-space:nowrap}
+.live-foot{margin-top:auto}
+.live .trow+.live-foot{margin-top:8px}
+.hscroll.mrail{align-items:stretch}
+.live-foot .eq{flex:1;min-width:0;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.balls{flex:none}
+.banner .b1,.banner .b2{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.banner .b1{line-height:20px}.banner .b2{margin-top:0}
+.trow .sc.ytb{font-size:var(--fs-s);font-weight:500;color:var(--t3)}

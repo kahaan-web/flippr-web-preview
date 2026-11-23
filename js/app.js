@@ -17,7 +17,7 @@ window.FL = window.FL || { onShow: {} };
   async function load(el) {
     if (el.dataset.loaded) return;
     el.dataset.loaded = '1';
-    try { const r = await fetch(el.dataset.src); el.innerHTML = await r.text(); runScripts(el); }
+    try { const r = await fetch(el.dataset.src); el.innerHTML = await r.text(); runScripts(el); if (window.FLGlass) FLGlass.refresh(); }
     catch (e) { el.innerHTML = '<p class="pad meta">Could not load this screen.</p>'; }
   }
   FL.toast = function (msg) {
