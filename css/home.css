@@ -169,4 +169,3 @@ html[data-theme="light"] .chip-ov{background:rgba(255,255,255,.88);color:rgba(0,
 /* light: reel captions/duration sit on photos with a dark scrim, so they stay white (fix over Cursor pass) */
 html[data-theme="light"] .hl:not(.make) .cap b,html[data-theme="light"] .hl:not(.make) .dur{color:#fff}
 html[data-theme="light"] .hl:not(.make) .cap span{color:rgba(255,255,255,.72)}
-html[data-theme="light"] .chip-ov{color:#fff}
