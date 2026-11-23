@@ -1,0 +1,187 @@
+<!-- Banner carousel (SHOW_BANNERS): existing auction banner + 3 more in the same 60px style -->
+<section class="carousel" aria-roledescription="carousel">
+  <div class="slides" id="slides">
+    <div class="slide"><a class="banner bn-auction" href="#auction">
+      <i class="ic bi" style="--m:url(../icons/Sledgehammer.svg)"></i>
+      <div class="bt"><div class="b1">Player Auctions made easy!</div><div class="b2">Organise your auction with us.</div></div>
+      <span class="bb">View Auction</span></a></div>
+    <div class="slide"><a class="banner bn-fantasy" href="#fantasy">
+      <i class="ic bi" style="--m:url(../icons/FilledFantasy.svg)"></i>
+      <div class="bt"><div class="b1">Play Fantasy</div><div class="b2">Pick your XI for tonight's final.</div></div>
+      <span class="bb">Play now</span></a></div>
+    <div class="slide"><a class="banner bn-hisaab" href="#hisaab">
+      <i class="ic bi" style="--m:url(../icons/wallet-money-bold.svg)"></i>
+      <div class="bt"><div class="b1">Manage your payments</div><div class="b2">Using Flippr Hisaab.</div></div>
+      <span class="bb">Open Hisaab</span></a></div>
+    <div class="slide"><a class="banner bn-ai" href="#" data-toast="Highlights for Worli Warriors vs Powai Panthers are being made">
+      <i class="ic bi" style="--m:url(../icons/stars-bold.svg)"></i>
+      <div class="bt"><div class="b1">Create AI highlights</div><div class="b2">For your match against Powai Panthers.</div></div>
+      <span class="bb">Create</span></a></div>
+  </div>
+  <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div>
+</section>
+
+<!-- Quick actions (drawer actions from develop: Start a match, Create a Tournament, Book a ground, Toss) -->
+<section class="sec">
+  <div class="qa">
+    <a class="card" href="#" data-toast="Start a match"><i class="ic" style="--m:url(../icons/add-circle-linear.svg)"></i>Start a match</a>
+    <a class="card" href="#" data-toast="Create a tournament"><i class="ic" style="--m:url(../icons/cup-star-linear.svg)"></i>Create tournament</a>
+    <a class="card" href="#near" ><i class="ic" style="--m:url(../icons/map-point-linear.svg)"></i>Book a ground</a>
+    <a class="card" href="#" data-toast="Toss"><i class="ic" style="--m:url(../icons/refresh-circle-linear.svg)"></i>Toss</a>
+  </div>
+</section>
+
+<!-- Live now -->
+<section class="sec">
+  <div class="sec-h"><h2>Live now</h2><a href="#matches">All matches</a></div>
+  <article class="card live">
+    <div class="live-top">
+      <span class="pill live">LIVE · T20</span>
+      <span class="meta">Mumbai Monsoon Cup · Semi-final 1<i class="ic s16" style="--m:url(../icons/alt-arrow-right-linear.svg)"></i></span>
+    </div>
+    <div class="trow"><span class="ini">WW</span><span class="nm">Worli Warriors</span><span class="sc num">168/7</span><span class="ov num">20.0 ov</span></div>
+    <div class="trow bat"><span class="ini">AA</span><span class="nm">Andheri Aces</span><span class="sc num">142/4</span><span class="ov num">16.2 ov</span></div>
+    <div class="live-foot">
+      <span class="eq num">Need 27 off 22 balls · RRR 7.36</span>
+      <span class="balls num"><span>1</span><span>•</span><span class="b4">4</span><span>2</span><span class="bw">W</span><span class="b6">6</span></span>
+    </div>
+  </article>
+</section>
+
+<!-- For you (upcoming): app match card, redesigned -->
+<section class="sec">
+  <div class="sec-h"><h2>For you</h2><a href="#matches">See all</a></div>
+  <div class="hscroll">
+    <article class="card mc">
+      <div class="mc-top"><img src="icons/ball-leather.svg" alt=""><span class="tn">Mumbai Monsoon Cup</span><span class="pill">UPCOMING</span></div>
+      <div class="tags">Final · Leather ball · 20 overs</div>
+      <div class="mc-body">
+        <div class="mc-teams"><div>Worli Warriors</div><div>Powai Panthers</div></div>
+        <div class="mc-cd"><div class="k">Starts in</div><div class="v num" data-countdown="135">2h 15m</div></div>
+      </div>
+      <div class="when"><i class="ic s14" style="--m:url(../icons/calendar-linear.svg)"></i>Today · 8:30 PM · Andheri Sports Turf</div>
+    </article>
+    <article class="card mc">
+      <div class="mc-top"><img src="icons/ball-tennis.svg" alt=""><span class="tn">Powai Box Cricket League</span><span class="pill">UPCOMING</span></div>
+      <div class="tags">League · Tennis ball · 8 overs</div>
+      <div class="mc-body">
+        <div class="mc-teams"><div>Bandra Blasters</div><div>Chembur Chargers</div></div>
+        <div class="mc-cd"><div class="k">Starts in</div><div class="v num" data-countdown="1425">23h 45m</div></div>
+      </div>
+      <div class="when"><i class="ic s14" style="--m:url(../icons/calendar-linear.svg)"></i>Tue 24 Nov · 7:00 PM · Powai Box Cricket Arena</div>
+    </article>
+  </div>
+</section>
+
+<!-- Near you (SHOW_BOOKING): bookable turf slots -->
+<section class="sec" id="near">
+  <div class="sec-h"><h2>Book a ground near you</h2><a href="#" data-toast="Map view">Map</a></div>
+  <div class="hscroll">
+    <article class="card venue">
+      <div class="ph"><img src="img/venue-andheri.jpg" alt="Floodlit turf with nets" loading="lazy"><span class="chip-ov">TURF · FLOODLIT</span></div>
+      <div class="vb">
+        <div class="vn"><span>Andheri Sports Turf</span><span class="num">₹1,400<small>/hr</small></span></div>
+        <div class="vm">Andheri West · 1.2 km</div>
+        <div class="slots num"><button disabled>6 PM</button><button>7 PM</button><button>9 PM</button><button>10 PM</button></div>
+      </div>
+    </article>
+    <article class="card venue">
+      <div class="ph"><img src="img/venue-powai.jpg" alt="Box cricket court" loading="lazy"><span class="chip-ov">BOX CRICKET</span></div>
+      <div class="vb">
+        <div class="vn"><span>Powai Box Cricket Arena</span><span class="num">₹1,100<small>/hr</small></span></div>
+        <div class="vm">Powai · 3.4 km</div>
+        <div class="slots num"><button>8 PM</button><button disabled>9 PM</button><button>11 PM</button></div>
+      </div>
+    </article>
+    <article class="card venue">
+      <div class="ph"><img src="img/venue-bandra.jpg" alt="Practice nets" loading="lazy"><span class="chip-ov">NETS</span></div>
+      <div class="vb">
+        <div class="vn"><span>Bandra Kickoff Turf</span><span class="num">₹900<small>/hr</small></span></div>
+        <div class="vm">Bandra West · 5.1 km</div>
+        <div class="slots num"><button>6 AM</button><button>7 AM</button><button>7 PM</button></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- AI Highlights (SHOW_HIGHLIGHTS) -->
+<section class="sec">
+  <div class="sec-h"><h2>AI Highlights</h2><a href="#" data-toast="All highlights">See all</a></div>
+  <div class="hscroll">
+    <a class="hl make" href="#" data-toast="Highlights for Worli Warriors vs Powai Panthers are being made">
+      <i class="ic" style="--m:url(../icons/stars-linear.svg)"></i>
+      <div><b>Make a reel of your last match</b><span>Worli Warriors vs Powai Panthers, 21 Nov</span></div>
+      <em>Create highlights</em>
+    </a>
+    <a class="hl" href="#" data-toast="Playing highlight"><img src="img/hl-1.jpg" alt="" loading="lazy"><span class="dur num"><i class="ic" style="--m:url(../icons/play-bold.svg)"></i>0:19</span>
+      <span class="cap"><b>Rohan's six over long-on</b><span>Monsoon Cup · QF 2</span></span></a>
+    <a class="hl" href="#" data-toast="Playing highlight"><img src="img/hl-3.jpg" alt="" loading="lazy"><span class="dur num"><i class="ic" style="--m:url(../icons/play-bold.svg)"></i>0:12</span>
+      <span class="cap"><b>Last-ball finish</b><span>Box League · Match 9</span></span></a>
+    <a class="hl" href="#" data-toast="Playing highlight"><img src="img/hl-2.jpg" alt="" loading="lazy"><span class="dur num"><i class="ic" style="--m:url(../icons/play-bold.svg)"></i>0:26</span>
+      <span class="cap"><b>Kabir's 3 for 18</b><span>Monsoon Cup · QF 1</span></span></a>
+  </div>
+</section>
+
+<!-- Open tournaments -->
+<section class="sec">
+  <div class="sec-h"><h2>Open tournaments</h2><a href="#" data-toast="All tournaments">See all</a></div>
+  <div class="card list tour">
+    <a class="row" href="#" data-toast="Tournament details"><span class="lead"><i class="ic" style="--m:url(../icons/cup-star-linear.svg)"></i></span>
+      <span class="mid"><b>Powai Winter Bash T10</b><span>Tennis ball · 12 teams · Starts Sat 5 Dec</span></span>
+      <span class="end"><b class="num">₹3,000</b><span class="left num">4 spots left</span></span></a>
+    <a class="row" href="#" data-toast="Tournament details"><span class="lead"><i class="ic" style="--m:url(../icons/cup-star-linear.svg)"></i></span>
+      <span class="mid"><b>Andheri Corporate League</b><span>Leather ball · 8 teams · Starts Sun 13 Dec</span></span>
+      <span class="end"><b class="num">₹8,500</b><span class="left num">2 spots left</span></span></a>
+    <a class="row" href="#" data-toast="Tournament details"><span class="lead"><i class="ic" style="--m:url(../icons/cup-star-linear.svg)"></i></span>
+      <span class="mid"><b>Bandra Night Box Cup</b><span>Box cricket · 16 teams · Starts Fri 27 Nov</span></span>
+      <span class="end"><b class="num">₹1,500</b><span class="left num">7 spots left</span></span></a>
+  </div>
+</section>
+
+<!-- Player suggestions -->
+<section class="sec">
+  <div class="sec-h"><h2>Player suggestions</h2><a href="#" data-toast="All suggestions">See all</a></div>
+  <div class="hscroll">
+    <div class="card pl"><img src="img/av1.jpg" alt="" loading="lazy"><b>Aarav Mehta</b><span>Batter · Andheri</span><button class="follow">+ Follow</button></div>
+    <div class="card pl"><img src="img/av3.jpg" alt="" loading="lazy"><b>Kabir Deshpande</b><span>All-rounder · Thane</span><button class="follow">+ Follow</button></div>
+    <div class="card pl"><img src="img/av5.jpg" alt="" loading="lazy"><b>Rohan Kulkarni</b><span>Batter · Powai</span><button class="follow">+ Follow</button></div>
+    <div class="card pl"><img src="img/av6.jpg" alt="" loading="lazy"><b>Ishaan Rao</b><span>Bowler · Bandra</span><button class="follow">+ Follow</button></div>
+    <div class="card pl"><img src="img/av2.jpg" alt="" loading="lazy"><b>Vihaan Shetty</b><span>Keeper · Chembur</span><button class="follow">+ Follow</button></div>
+  </div>
+</section>
+
+<!-- From your circle -->
+<section class="sec">
+  <div class="sec-h"><h2>From your circle</h2></div>
+  <div class="card list feed">
+    <div class="row"><span class="lead round"><img src="img/av5.jpg" alt=""></span><span class="mid"><p><b>Rohan Kulkarni</b> scored 54 (31) as Worli Warriors beat Bandra Blasters by 18 runs</p></span><span class="t">2h</span></div>
+    <div class="row"><span class="lead round"><img src="img/av3.jpg" alt=""></span><span class="mid"><p><b>Kabir Deshpande</b> took 3 for 18 in the Monsoon Cup quarter-final</p></span><span class="t">1d</span></div>
+    <div class="row"><span class="lead"><i class="ic" style="--m:url(../icons/cup-star-linear.svg)"></i></span><span class="mid"><p><b>Powai Winter Bash T10</b> registrations close Friday · 4 spots left</p></span><span class="t">1d</span></div>
+  </div>
+</section>
+
+<script>
+(function () {
+  // Carousel: swipe (scroll-snap), dots, auto-advance every 5 s; pauses while touching.
+  const s = document.getElementById('slides'), dots = [...document.querySelectorAll('#dots i')];
+  let idx = 0, hold = false;
+  const sync = () => { idx = Math.round(s.scrollLeft / s.clientWidth); dots.forEach((d, k) => d.classList.toggle('on', k === idx)); };
+  s.addEventListener('scroll', () => { clearTimeout(s._t); s._t = setTimeout(sync, 60); }, { passive: true });
+  ['pointerdown', 'touchstart'].forEach(e => s.addEventListener(e, () => hold = true, { passive: true }));
+  ['pointerup', 'touchend'].forEach(e => s.addEventListener(e, () => setTimeout(() => hold = false, 3000), { passive: true }));
+  dots.forEach((d, k) => d.onclick = () => s.scrollTo({ left: k * s.clientWidth, behavior: 'smooth' }));
+  setInterval(() => { if (hold || !s.offsetParent) return; s.scrollTo({ left: ((idx + 1) % dots.length) * s.clientWidth, behavior: 'smooth' }); }, 5000);
+  // Follow toggles
+  document.querySelectorAll('#v-home .follow').forEach(b => b.onclick = () => { const on = b.classList.toggle('on'); b.textContent = on ? 'Following' : '+ Follow'; });
+  // Slot selection (one per venue)
+  document.querySelectorAll('#v-home .slots').forEach(g => g.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b || b.disabled) return;
+    g.querySelectorAll('button').forEach(x => x.classList.toggle('sel', x === b && !x.classList.contains('sel')));
+    if (b.classList.contains('sel')) FL.toast(b.closest('.venue').querySelector('.vn span').textContent + ' · ' + b.textContent + ' held for 10 min');
+  }));
+  // Countdowns
+  const t0 = Date.now();
+  const fmt = m => m >= 60 ? Math.floor(m / 60) + 'h ' + (m % 60) + 'm' : m + 'm';
+  setInterval(() => { const el = Math.floor((Date.now() - t0) / 60000); document.querySelectorAll('[data-countdown]').forEach(n => n.textContent = fmt(Math.max(0, +n.dataset.countdown - el))); }, 20000);
+})();
+</script>

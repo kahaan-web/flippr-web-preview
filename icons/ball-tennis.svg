@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" fill="none">
+  <defs>
+    <clipPath id="tennis-ball">
+      <circle cx="120" cy="120" r="120"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#tennis-ball)">
+    <circle cx="120" cy="120" r="120" fill="#DEDC00"/>
+    <g fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="butt">
+      <circle cx="-3" cy="-12" r="125"/>
+      <circle cx="247" cy="249" r="124"/>
+    </g>
+  </g>
+</svg>

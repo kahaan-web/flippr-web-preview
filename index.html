@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F1115">
+<title>Flippr</title>
+<script>if(location.search.includes('shot'))document.documentElement.classList.add('shot')</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+<div class="stage"><div class="phone"><div class="screen" id="screen">
+
+  <!-- views: each fragment is loaded from screens/<name>.html -->
+  <main class="view" id="v-home" data-title="" data-src="screens/home.html"></main>
+
+  <header class="header" id="header">
+    <div class="hrow">
+      <button class="hbtn menu" id="menuBtn" aria-label="Open menu"><i class="ic" style="--m:url(../icons/Menu.svg)"></i></button>
+      <button class="hbtn hback" id="backBtn" aria-label="Back"><i class="ic" style="--m:url(../icons/alt-arrow-left-linear.svg)"></i></button>
+      <img class="hlogo" id="hLogo" src="img/flippr-logo-white.svg" alt="FLIPPR">
+      <span class="htitle" id="hTitle" hidden></span>
+      <span class="hgrow"></span>
+      <button class="hbtn" aria-label="Search"><i class="ic" style="--m:url(../icons/Search.svg)"></i></button>
+      <button class="hbtn" aria-label="Notifications"><i class="ic" style="--m:url(../icons/Bell.svg)"></i><span class="badge num">4</span></button>
+    </div>
+  </header>
+
+  <div class="statusbar" aria-hidden="true">
+    <span class="sb-time">9:41</span>
+    <span class="sb-right">
+      <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#fff"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff"/></svg>
+      <svg width="17" height="12" viewBox="0 0 17 12"><path fill="#fff" d="M8.5 2.6c2.3 0 4.4.9 6 2.4l1.2-1.2C13.8 1.9 11.3.9 8.5.9S3.2 1.9 1.3 3.8l1.2 1.2c1.6-1.5 3.7-2.4 6-2.4zm0 3.4c1.4 0 2.6.5 3.6 1.4l1.2-1.2c-1.2-1.2-2.9-1.9-4.8-1.9s-3.6.7-4.8 1.9l1.2 1.2c1-.9 2.2-1.4 3.6-1.4zm0 3.3c.5 0 1 .2 1.3.5L8.5 11.1 7.2 9.8c.3-.3.8-.5 1.3-.5z"/></svg>
+      <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.8" fill="none" stroke="#fff" stroke-opacity=".4"/><rect x="2" y="2" width="20" height="9" rx="2.5" fill="#fff"/><path d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" fill="#fff" fill-opacity=".4"/></svg>
+    </span>
+  </div>
+
+  <div class="navwrap">
+    <nav class="navbar" id="navbar">
+      <span class="nav-ind" id="navInd"></span>
+      <a class="nav-item" href="#home" data-i="0"><i class="ic o" style="--m:url(../icons/Home.svg)"></i><i class="ic f" style="--m:url(../icons/FilledHome.svg)"></i><span>Home</span></a>
+      <a class="nav-item" href="#fantasy" data-i="1"><i class="ic o" style="--m:url(../icons/Fantsy.svg)"></i><i class="ic f" style="--m:url(../icons/FilledFantasy.svg)"></i><span>Fantasy</span></a>
+      <a class="nav-item" href="#auction" data-i="2"><i class="ic o" style="--m:url(../icons/Auction.svg)"></i><i class="ic f" style="--m:url(../icons/Auction_Filled.svg)"></i><span>Auction</span></a>
+      <a class="nav-item" href="#matches" data-i="3"><i class="ic o" style="--m:url(../icons/MyMatches.svg)"></i><i class="ic f" style="--m:url(../icons/FilledMyMatches.svg)"></i><span>My Matches</span></a>
+      <a class="nav-item" href="#more" data-i="4"><i class="ic o" style="--m:url(../icons/widget-linear.svg)"></i><i class="ic f" style="--m:url(../icons/widget-bold.svg)"></i><span>More</span></a>
+    </nav>
+  </div>
+
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="drawer" data-src="screens/drawer.html"></aside>
+  <div class="toast" id="toast"></div>
+  <div class="home-indicator" aria-hidden="true"></div>
+</div></div></div>
+<script src="js/app.js"></script>
+</body>
+</html>
