@@ -26,7 +26,7 @@ a{color:inherit;text-decoration:none} button{font:inherit;color:inherit;backgrou
 .screen{position:absolute;inset:0;border-radius:56px;overflow:hidden;background:var(--l0);isolation:isolate}
 @media (max-width:500px){body{background:var(--l0)}.stage{padding:0;display:block;height:100%}.phone{width:100%;height:100%;border-radius:0;box-shadow:none}.screen{border-radius:0}.statusbar,.home-indicator{display:none}:root{--top:max(env(safe-area-inset-top),12px);--bottom:max(env(safe-area-inset-bottom),8px)}}
 html.shot .stage{padding:0;display:block} html.shot .phone,html.shot .screen{border-radius:0;box-shadow:none}
-.statusbar{position:absolute;top:0;left:0;right:0;height:47px;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:4px 28px 0 50px;font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;pointer-events:none}
+.statusbar{position:absolute;top:0;left:0;right:0;height:47px;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:4px 28px 0 50px;font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;pointer-events:none;color:#fff}
 .sb-time{font-size:17px;font-weight:600}.sb-right{display:flex;gap:6px;align-items:center}
 .home-indicator{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:rgba(255,255,255,.85);z-index:41}
 /* icon: <i class="ic" style="--m:url(icons/NAME.svg)"></i> — tinted by currentColor */
@@ -129,3 +129,41 @@ html.shot .stage{padding:0;display:block} html.shot .phone,html.shot .screen{bor
   box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 0 0 1px rgba(255,255,255,.07),inset 0 -8px 16px -12px rgba(255,255,255,.16),0 12px 30px -8px rgba(0,0,0,.6),0 2px 6px rgba(0,0,0,.3)}
 .navbar.glass::before,.nav-more.glass::before{background:linear-gradient(180deg,rgba(24,26,33,.58),rgba(16,18,23,.66))}
 .navbar.glass.lens,.nav-more.glass.lens{-webkit-backdrop-filter:var(--lens) blur(24px) saturate(1.9) brightness(.96);backdrop-filter:var(--lens) blur(24px) saturate(1.9) brightness(.96)}
+
+/* ---------- light theme (dark values above unchanged) ---------- */
+html[data-theme="light"]{
+  --l0:#F2F3F7;--l1:#FFFFFF;--l2:#F0F1F5;
+  --line:rgba(0,0,0,.08);
+  --t1:rgba(0,0,0,.90);--t2:rgba(0,0,0,.60);--t3:rgba(0,0,0,.42);
+  --accent:#2563EB;--accent-soft:rgba(37,99,235,.12);
+  --live:#E11D48;--won:#059669;
+}
+html[data-theme="light"] body{background:#E3E5EA}
+html[data-theme="light"] .phone{box-shadow:0 0 0 11px #eceef2,0 0 0 13px #d8dbe2,0 30px 80px rgba(0,0,0,.18)}
+html[data-theme="light"] .statusbar{color:#000}
+html[data-theme="light"] .home-indicator{background:rgba(0,0,0,.32)}
+html[data-theme="light"] .header::before{background:linear-gradient(180deg,#DCE8FF 0%,#E6EEFF 52%,#F2F3F7 100%)}
+html[data-theme="light"] #v-home{background:linear-gradient(180deg,#E0EAFF 0,#EBF1FB calc(var(--top) + 96px),#F2F3F7 calc(var(--top) + 190px)) no-repeat;background-attachment:local}
+html[data-theme="light"] .header::after{background:linear-gradient(180deg,rgba(255,255,255,.82) 0%,rgba(255,255,255,.58) 62%,rgba(255,255,255,0) 100%)}
+html[data-theme="light"] .hbtn{color:rgba(0,0,0,.88)}
+html[data-theme="light"] .scrim{background:rgba(0,0,0,.38)}
+html[data-theme="light"] .pill.live{background:rgba(225,29,72,.12);color:var(--live)}
+html[data-theme="light"] .pill.done{background:rgba(5,150,105,.12);color:var(--won)}
+html[data-theme="light"] .balls .bw{background:rgba(225,29,72,.14);color:var(--live)}
+html[data-theme="light"] .glass{
+  background:rgba(255,255,255,.68);
+  -webkit-backdrop-filter:blur(26px) saturate(1.85) brightness(1.04);backdrop-filter:blur(26px) saturate(1.85) brightness(1.04);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.92),inset 0 0 0 1px rgba(0,0,0,.06),inset 0 -10px 18px -14px rgba(255,255,255,.55),0 8px 24px -6px rgba(0,0,0,.14),0 1px 3px rgba(0,0,0,.08)}
+html[data-theme="light"] .glass::before{background:linear-gradient(180deg,rgba(255,255,255,.52),rgba(255,255,255,.34))}
+html[data-theme="light"] .glass::after{background:linear-gradient(135deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.35) 24%,rgba(255,255,255,0) 48%,rgba(255,255,255,0) 60%,rgba(0,0,0,.04) 82%,rgba(0,0,0,.07) 100%)}
+html[data-theme="light"] .glass.lens{-webkit-backdrop-filter:var(--lens) saturate(1.85) brightness(1.04);backdrop-filter:var(--lens) saturate(1.85) brightness(1.04)}
+html[data-theme="light"] .navbar.glass,html[data-theme="light"] .nav-more.glass{
+  background:rgba(255,255,255,.66);
+  -webkit-backdrop-filter:blur(28px) saturate(1.9) brightness(1.03);backdrop-filter:blur(28px) saturate(1.9) brightness(1.03);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 0 0 1px rgba(0,0,0,.06),inset 0 -8px 16px -12px rgba(255,255,255,.7),0 12px 28px -8px rgba(0,0,0,.16),0 2px 6px rgba(0,0,0,.08)}
+html[data-theme="light"] .navbar.glass::before,html[data-theme="light"] .nav-more.glass::before{background:linear-gradient(180deg,rgba(255,255,255,.58),rgba(248,249,252,.48))}
+html[data-theme="light"] .navbar.glass.lens,html[data-theme="light"] .nav-more.glass.lens{-webkit-backdrop-filter:var(--lens) blur(26px) saturate(1.9) brightness(1.03);backdrop-filter:var(--lens) blur(26px) saturate(1.9) brightness(1.03)}
+html[data-theme="light"] .nav-more{color:rgba(0,0,0,.86)}
+html[data-theme="light"] .nav-ind{background:rgba(255,255,255,.92);box-shadow:inset 0 1px 0 rgba(255,255,255,1),inset 0 -1px 0 rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.06)}
+html[data-theme="light"] .nav-item{color:rgba(0,0,0,.62)}
+html[data-theme="light"] .nav-item.on{color:var(--accent)}

@@ -27,7 +27,14 @@
 <div class="dr-sec">
   <h6>Account</h6>
   <a class="dr-item" href="#settings"><i class="ic" style="--m:url(../icons/settings-linear.svg)"></i>Settings</a>
-  <a class="dr-item" href="#" data-toast="Appearance is set to Dark"><i class="ic" style="--m:url(../icons/moon-linear.svg)"></i>Appearance<em>Dark</em></a>
+  <button type="button" class="dr-item dr-theme" id="drThemeBtn" aria-expanded="false" aria-controls="themePanel"><i class="ic" style="--m:url(../icons/moon-linear.svg)"></i>Appearance<em id="themeLbl">Dark</em></button>
+  <div class="dr-theme-panel" id="themePanel" hidden>
+    <div class="seg theme-seg" role="radiogroup" aria-label="Appearance">
+      <button type="button" role="radio" data-theme-pref="dark" aria-checked="true">Dark</button>
+      <button type="button" role="radio" data-theme-pref="light" aria-checked="false">Light</button>
+      <button type="button" role="radio" data-theme-pref="system" aria-checked="false">System</button>
+    </div>
+  </div>
   <a class="dr-item" href="#" data-toast="Support"><i class="ic" style="--m:url(../icons/headphones-round-linear.svg)"></i>Support</a>
   <a class="dr-item" href="#" data-toast="Contact us"><i class="ic" style="--m:url(../icons/chat-round-line-linear.svg)"></i>Contact us</a>
   <a class="dr-item" href="#" data-toast="Component Library"><i class="ic" style="--m:url(../icons/code-square-linear.svg)"></i>Component library</a>

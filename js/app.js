@@ -72,6 +72,37 @@ window.FL = window.FL || { onShow: {} };
   });
   document.querySelector('[aria-label="Search"]').onclick = () => FL.toast('Search is coming in the next build');
   document.querySelector('[aria-label="Notifications"]').onclick = () => FL.toast('You have 4 unread notifications · Demo');
-  load(document.getElementById('drawer'));
+  const THEME_NAMES = { dark: 'Dark', light: 'Light', system: 'System' };
+  function syncThemeChrome() {
+    const t = document.documentElement.getAttribute('data-theme') || 'dark';
+    const logo = document.getElementById('hLogo');
+    if (logo) logo.src = t === 'light' ? 'img/flippr-logo-dark.svg' : 'img/flippr-logo-white.svg';
+    const pref = window.FLTheme ? FLTheme.get() : 'dark';
+    const lbl = document.getElementById('themeLbl');
+    if (lbl) lbl.textContent = THEME_NAMES[pref] || 'Dark';
+    document.querySelectorAll('[data-theme-pref]').forEach(btn => {
+      const on = btn.dataset.themePref === pref;
+      btn.classList.toggle('on', on);
+      btn.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
+  }
+  window.FLThemeSync = syncThemeChrome;
+  function bindThemeUI() {
+    const btn = document.getElementById('drThemeBtn');
+    const panel = document.getElementById('themePanel');
+    if (!btn || btn.dataset.bound) return;
+    btn.dataset.bound = '1';
+    btn.onclick = () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      panel.hidden = open;
+    };
+    panel.querySelectorAll('[data-theme-pref]').forEach(b => {
+      b.onclick = () => { FLTheme.set(b.dataset.themePref); syncThemeChrome(); };
+    });
+    syncThemeChrome();
+  }
+  load(document.getElementById('drawer')).then(bindThemeUI);
+  syncThemeChrome();
   show(location.hash.slice(1) || 'home');
 })();

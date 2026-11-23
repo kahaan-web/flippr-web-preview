@@ -153,3 +153,20 @@
 .hl{width:132px;height:auto;aspect-ratio:9/16}
 .hl.make{justify-content:space-between}
 .mrail .balls{gap:3px}.mrail .balls span{width:20px;height:20px}
+
+.dr-item.dr-theme{width:100%;text-align:left}
+.dr-theme-panel{padding:0 16px 12px 20px}
+.dr-theme-panel .seg{margin:0}
+.dr-theme-panel .theme-seg button{font-size:13px;height:32px}
+
+html[data-theme="light"] .page-control button::after{background:rgba(0,0,0,.22)}
+html[data-theme="light"] .page-control button.on::after{background:rgba(0,0,0,.72)}
+html[data-theme="light"] .match-links{background:rgba(0,0,0,.03)}
+html[data-theme="light"] .live-foot{background:rgba(0,0,0,.025)}
+html[data-theme="light"] .bar{background:rgba(0,0,0,.08)}
+html[data-theme="light"] .banner{border-color:rgba(0,0,0,.06);box-shadow:0 3px 10px rgba(0,0,0,.1)}
+html[data-theme="light"] .chip-ov{background:rgba(255,255,255,.88);color:rgba(0,0,0,.88)}
+/* light: reel captions/duration sit on photos with a dark scrim, so they stay white (fix over Cursor pass) */
+html[data-theme="light"] .hl:not(.make) .cap b,html[data-theme="light"] .hl:not(.make) .dur{color:#fff}
+html[data-theme="light"] .hl:not(.make) .cap span{color:rgba(255,255,255,.72)}
+html[data-theme="light"] .chip-ov{color:#fff}
